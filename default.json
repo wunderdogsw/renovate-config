@@ -1,0 +1,31 @@
+{
+    "extends": [
+      "default:pinVersions"
+    ],
+    "lockFileMaintenance": { "enabled": true, "schedule": ["before 5:00am"] },
+    "packageRules": [
+      {
+        "packageNames": ["ts-jest", "jest", "@types/jest"],
+        "groupName": "jest packages",
+        "automerge": true
+      },
+      {
+        "packageNames": ["npm-run-all", "concurrently", "nodemon"],
+        "groupName": "dev tools"
+      },
+      {
+        "packageNames": ["tslint", "tslint-plugin-prettier", "prettier"],
+        "groupName": "lint packages",
+        "automerge": true
+      },
+      {
+        "packageNames": [
+          "@types/node"
+        ],
+        "major": {
+          "enabled": false
+        }
+      }
+    ]
+  }
+  
