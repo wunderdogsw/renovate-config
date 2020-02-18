@@ -2,7 +2,7 @@
     "extends": [
       "default:pinVersions"
     ],
-    "lockFileMaintenance": { "enabled": true, "schedule": ["before 5:00am"] },
+    "lockFileMaintenance": { "enabled": true, "schedule": ["at any time"] },
     "packageRules": [
       {
         "packageNames": ["ts-jest", "jest", "@types/jest"],
