@@ -19,9 +19,20 @@
         "automerge": true
       },
       {
+        "groupName": "patch updates",
+        "updateTypes": ["patch", "pin", "digest"],
+        "automerge": true
+      },
+      {
+        "groupName": "minor updates",
+        "updateTypes": ["minor"]
+      },
+      {
         "packageNames": [
+          "node",
           "@types/node"
         ],
+        "groupName": "node",
         "major": {
           "enabled": false
         }
