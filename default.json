@@ -1,12 +1,8 @@
 {
     "extends": [
-      "default:pinVersions"
+      "default:pinVersions",
+      ":automergePatch"
     ],
-    "lockFileMaintenance": {
-      "enabled": true,
-      "automerge": true,
-      "schedule": ["at any time"] 
-    },
     "packageRules": [
       {
         "packageNames": ["ts-jest", "jest", "@types/jest"],
@@ -20,11 +16,6 @@
       {
         "packageNames": ["tslint", "tslint-plugin-prettier", "prettier"],
         "groupName": "lint packages",
-        "automerge": true
-      },
-      {
-        "groupName": "patch updates",
-        "updateTypes": ["patch", "pin", "digest"],
         "automerge": true
       },
       {
