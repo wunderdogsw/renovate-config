@@ -1,7 +1,9 @@
 {
     "extends": [
       "default:pinVersions",
-      ":automergePatch"
+      ":automergePatch",
+      ":automergeTesters",
+      ":automergeLinters"
     ],
     "lockFileMaintenance": {
       "enabled": true,
@@ -9,21 +11,16 @@
     },
     "packageRules": [
       {
-        "packageNames": ["ts-jest", "jest", "@types/jest"],
-        "groupName": "jest packages",
-        "automerge": true
-      },
-      {
         "packageNames": ["npm-run-all", "concurrently", "nodemon"],
         "groupName": "dev tools"
       },
       {
-        "packageNames": ["tslint", "tslint-plugin-prettier", "prettier"],
-        "groupName": "lint packages",
+        "packagePatterns": ["prettier"],
+        "groupName": "prettier packages",
         "automerge": true
       },
       {
-        "groupName": "minor updates",
+        "groupName": "minor package updates",
         "updateTypes": ["minor"]
       },
       {
