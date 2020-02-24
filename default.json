@@ -32,6 +32,11 @@
         "major": {
           "enabled": false
         }
+      },
+      {
+        "groupName": "skipped packages",
+        "packagePatterns": ["waterline"],
+        "enabled": false
       }
     ]
   }
