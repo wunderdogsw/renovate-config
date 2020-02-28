@@ -11,6 +11,11 @@
     },
     "packageRules": [
       {
+        "groupName": "minor package updates",
+        "updateTypes": ["minor"],
+        "automerge": true
+      },
+      {
         "packageNames": ["npm-run-all", "concurrently", "nodemon"],
         "groupName": "dev tools"
       },
