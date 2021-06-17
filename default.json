@@ -1,9 +1,13 @@
 {
     "extends": [
       "default:pinVersions",
+      "group:jsUnitTest",
+      "docker:enableMajor",
+      "group:linters",
       ":automergeMinor",
       ":automergeTesters",
-      ":automergeLinters"
+      ":automergeLinters",
+      "workarounds:typesNodeVersioning"
     ],
     "lockFileMaintenance": {
       "enabled": true,
@@ -11,17 +15,14 @@
     },
     "packageRules": [
       {
-        "groupName": "minor package updates",
-        "updateTypes": ["minor"],
+        "packageNames": ["npm-run-all", "concurrently", "nodemon"],
+        "groupName": "dev tools",
         "automerge": true
       },
       {
-        "packageNames": ["npm-run-all", "concurrently", "nodemon"],
-        "groupName": "dev tools"
-      },
-      {
-        "packagePatterns": ["prettier"],
+        "matchPackagePrefixes": ["prettier"],
         "groupName": "prettier packages",
+        "updateTypes": ["minor", "major", "patch"],
         "automerge": true
       },
       {
@@ -29,11 +30,12 @@
           "node",
           "@types/node"
         ],
-        "groupName": "node",
-        "major": {
-          "enabled": false
-        }
+        "groupName": "node"
+      },
+      {
+        "groupName": "minor package updates",
+        "updateTypes": ["minor"],
+        "automerge": true
       }
     ]
   }
-  
