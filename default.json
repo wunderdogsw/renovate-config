@@ -26,6 +26,11 @@
         "automerge": true
       },
       {
+        "packageNames": ["jest", "ts-jest", "@types/jest"],
+        "groupName": "jest packages",
+        "automerge": true,
+        "updateTypes": ["minor", "patch", "major"]
+      {
         "packageNames": [
           "node",
           "@types/node"
@@ -33,8 +38,8 @@
         "groupName": "node"
       },
       {
-        "groupName": "minor package updates",
-        "updateTypes": ["minor"],
+        "groupName": "minor & patch package updates",
+        "updateTypes": ["minor", "patch"],
         "automerge": true
       }
     ]
