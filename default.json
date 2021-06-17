@@ -19,6 +19,14 @@
   },
   "packageRules": [
     {
+      "groupName": "minor & patch package updates",
+      "automerge": true,
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    },
+    {
       "groupName": "dev tools",
       "automerge": true,
       "matchPackageNames": [
@@ -28,10 +36,10 @@
       ]
     },
     {
-      "matchPackagePrefixes": [
+      "matchPackageNames": [
         "prettier"
       ],
-      "groupName": "prettier packages",
+      "groupName": "prettier",
       "automerge": true,
       "matchUpdateTypes": [
         "minor",
@@ -58,14 +66,6 @@
       "matchPackageNames": [
         "node",
         "@types/node"
-      ]
-    },
-    {
-      "groupName": "minor & patch package updates",
-      "automerge": true,
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
       ]
     }
   ]
