@@ -1,47 +1,72 @@
 {
-    "extends": [
-      "default:pinVersions",
-      "group:jsUnitTest",
-      "docker:enableMajor",
-      "group:linters",
-      ":automergeMinor",
-      ":automergeTesters",
-      ":automergeLinters",
-      "workarounds:typesNodeVersioning"
-    ],
-    "lockFileMaintenance": {
-      "enabled": true,
-      "schedule": ["after 8pm and before 8am every weekday", "every weekend"]
-    },
-    "packageRules": [
-      {
-        "packageNames": ["npm-run-all", "concurrently", "nodemon"],
-        "groupName": "dev tools",
-        "automerge": true
-      },
-      {
-        "matchPackagePrefixes": ["prettier"],
-        "groupName": "prettier packages",
-        "updateTypes": ["minor", "major", "patch"],
-        "automerge": true
-      },
-      {
-        "packageNames": ["jest", "ts-jest", "@types/jest"],
-        "groupName": "jest packages",
-        "automerge": true,
-        "updateTypes": ["minor", "patch", "major"],
-      },
-      {
-        "packageNames": [
-          "node",
-          "@types/node"
-        ],
-        "groupName": "node"
-      },
-      {
-        "groupName": "minor & patch package updates",
-        "updateTypes": ["minor", "patch"],
-        "automerge": true
-      }
+  "extends": [
+    "default:pinVersions",
+    "group:jsUnitTest",
+    "docker:enableMajor",
+    "group:linters",
+    ":automergeMinor",
+    ":automergeTesters",
+    ":automergeLinters",
+    "workarounds:typesNodeVersioning"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": [
+      "after 8pm every weekday",
+      "every weekend",
+      "before 8am every weekday"
     ]
-  }
+  },
+  "packageRules": [
+    {
+      "groupName": "dev tools",
+      "automerge": true,
+      "matchPackageNames": [
+        "npm-run-all",
+        "concurrently",
+        "nodemon"
+      ]
+    },
+    {
+      "matchPackagePrefixes": [
+        "prettier"
+      ],
+      "groupName": "prettier packages",
+      "automerge": true,
+      "matchUpdateTypes": [
+        "minor",
+        "major",
+        "patch"
+      ]
+    },
+    {
+      "groupName": "jest packages",
+      "automerge": true,
+      "matchPackageNames": [
+        "jest",
+        "ts-jest",
+        "@types/jest"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "major"
+      ]
+    },
+    {
+      "groupName": "node",
+      "matchPackageNames": [
+        "node",
+        "@types/node"
+      ]
+    },
+    {
+      "groupName": "minor & patch package updates",
+      "automerge": true,
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    }
+  ]
+}
