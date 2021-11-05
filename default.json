@@ -17,6 +17,8 @@
       "before 8am every weekday"
     ]
   },
+  "dependencyDashboard": true,
+  "internalChecksFilter": "strict",
   "packageRules": [
     {
       "groupName": "minor & patch package updates",
@@ -67,6 +69,10 @@
         "node",
         "@types/node"
       ]
+    },
+    {
+      "matchDatasources": ["npm"],
+      "stabilityDays": 4
     }
   ]
 }
